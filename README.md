@@ -21,3 +21,6 @@ $ npm start
 ```
 
 - http://localhost:3000 에서 프론트엔드 서버 실행
+
+클론 받은 뒤 
+npm install
