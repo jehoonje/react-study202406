@@ -15,12 +15,22 @@ const App = () => {
     {
       title: '족발먹음',
       price: 40000,
-      date: new Date(2024, 6 - 1, 7)
+      date: new Date(2023, 6 - 1, 7)
     },
     {
       title: '헬스장등록',
       price: 300000,
-      date: new Date(2024, 6 - 1, 12)
+      date: new Date(2023, 6 - 1, 12)
+    },
+    {
+      title: '파파존스피자',
+      price: 40000,
+      date: new Date(2022, 6 - 1, 12)
+    },
+    {
+      title: '파리채',
+      price: 1200,
+      date: new Date(2023, 4 - 1, 12)
     },
   ];
 
