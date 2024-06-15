@@ -1,54 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CourseInput from './components/CourseGoals/CourseInput';
+import CourseList from './components/CourseGoals/CourseList';
 import './App.css';
-import ExpenseList from './components/expenses/ExpenseList';
-import NewExpense from './components/new-expense/NewExpense';
+
+// 기본 더미 데이터
+const DUMMY_DATA = [
+  {
+    id: 'g1',
+    text: '리액트 컴포넌트 스타일링 마스터하기'
+  },
+  {
+    id: 'g2',
+    text: 'UI/UX 프로그래밍 쌉고수되기'
+  },
+];
 
 const App = () => {
 
-  // 서버에서 지출항목 JSON 배열을 응답받음
-  const expenses = [
-    {
-      title: '치킨먹음',
-      price: 30000,
-      date: new Date(2024, 6 - 1, 3)
-    },
-    {
-      title: '족발먹음',
-      price: 40000,
-      date: new Date(2023, 6 - 1, 7)
-    },
-    {
-      title: '헬스장등록',
-      price: 300000,
-      date: new Date(2023, 6 - 1, 12)
-    },
-    {
-      title: '파파존스피자',
-      price: 40000,
-      date: new Date(2022, 6 - 1, 12)
-    },
-    {
-      title: '파리채',
-      price: 1200,
-      date: new Date(2023, 4 - 1, 12)
-    },
-  ];
+  const [goals, setGoals] = useState(DUMMY_DATA);
 
-  // ExpenseForm에게 내려보낼 함수
-  const onAddExpense = (userInput) => {
-    console.log('app.js가 내려보낸 함수 호출!');
-    // console.log(userInput);
-    expenses.push(userInput);
-    console.log(expenses);
+  // CourseInput에게 전달할 함수
+  const addGoalHandler = (goalObject) => {
+    setGoals([...goals, goalObject]);
   };
 
-
+  // CouseItem에게 전달할 함수
+  const deleteGoalHandler = (id) => {
+    // console.log('id: ', id);
+    // goals.splice(goals.findIndex(g => g.id === id), 1);
+    setGoals(goals.filter(g => g.id !== id));
+  };
 
   return (
-    <>
-      <NewExpense onSave={onAddExpense} />
-      <ExpenseList expenses={expenses} />
-    </>
+    <div>
+      <section id="goal-form">
+        <CourseInput onAdd={addGoalHandler} />
+      </section>
+      <section id="goals">
+        <CourseList items={goals} onDelete={deleteGoalHandler} />
+      </section>
+    </div>
   );
 };
 
