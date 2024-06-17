@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import './CheckBoxStyle.css';
+import './CheckBoxStyle.css'; 
 
-const CheckBoxStyle = () => {
+function CheckBoxStyle() {
+
+  // 체크상태를 관리
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleChange = () => {
+  const checkChangeHandler = e => {
     setIsChecked(!isChecked);
   };
-
+  
   return (
     <div className="checkbox-container">
       <input
         type="checkbox"
         id="styled-checkbox"
         checked={isChecked}
-        onChange={handleChange}
+        onChange={checkChangeHandler}
       />
       <label
         htmlFor="styled-checkbox"
@@ -24,6 +26,6 @@ const CheckBoxStyle = () => {
       </label>
     </div>
   );
-};
+}
 
 export default CheckBoxStyle;

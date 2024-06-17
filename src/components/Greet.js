@@ -11,6 +11,6 @@ const Greet = (ccc) => {
       </h1>
     </Card>
   );
-}
+};
 
 export default Greet;

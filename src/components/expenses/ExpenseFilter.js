@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ExpenseFilter.css';
 
-const ExpenseFilter = ({  onChangeFilter  }) => {
+const ExpenseFilter = ({ onChangeFilter }) => {
 
-  
+
   const changeYearHandler = e => {
     const selectedYear = e.target.value;
-    console.log(selectedYear);
+    // console.log(selectedYear);
+
     onChangeFilter(selectedYear);
   };
 
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
-        <label>연도별 필터</label>
+        <label>Filter by year</label>
         <select onChange={changeYearHandler}>
           <option value="2024">2024</option>
           <option value="2023">2023</option>
@@ -25,6 +26,6 @@ const ExpenseFilter = ({  onChangeFilter  }) => {
       </div>
     </div>
   );
-}
+};
 
 export default ExpenseFilter;

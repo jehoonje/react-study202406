@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styles from './CourseInput.module.css';
-import Button from '../UI/button';
+import Button from '../UI/Button';
 
 const CourseInput = ({ onAdd }) => {
 
-  const { invalid, "form-control" : formControl } = styles;
+  // console.log('s: ', styles);
 
+  const { invalid, "form-control": formControl } = styles;
 
   // 목표 인풋에 입력한 값
   const [enteredText, setEnteredText] = useState('');
@@ -42,6 +43,8 @@ const CourseInput = ({ onAdd }) => {
     }
     setEnteredText(inputValue);
   };
+
+
   const foo = () => {
 
     const arr = [1,2,3,4,5,6,700000000];
@@ -50,7 +53,7 @@ const CourseInput = ({ onAdd }) => {
     const $ul = document.querySelector('ul.abc');
 
     // 중간 가상 DOM 생성
-    const $div = document.createElement('div');
+    const $div = document.createDocumentFragment();
 
     arr.forEach(n => {
       // 아직 렌더링이 되지 않은 요소 : virtual DOM
@@ -63,9 +66,10 @@ const CourseInput = ({ onAdd }) => {
     $ul.appendChild($div);
   };
 
+
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className={`${form-control} ${!isValid && invalid}`}>
+      <div className={`${formControl} ${!isValid ? invalid : ''}`}>
         <label>나의 목표</label>
         <input
           type="text"
