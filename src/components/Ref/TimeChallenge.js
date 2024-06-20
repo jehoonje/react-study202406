@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import ResultModal from './ResultModal';
 
 const TimerChallenge = ({ title, targetTime }) => {
-
   // timer를 ref변수로 관리
   const timer = useRef();
 
@@ -12,22 +11,26 @@ const TimerChallenge = ({ title, targetTime }) => {
   // 타겟시간이 종료되었는지 여부
   const [timerExpired, setTimerExpired] = useState(false);
 
-  const startHandler = e => {
+  // 자식컴포넌트 ResultModal에 있는 dialog태그의 참조를 만듬
+  const dialog = useRef();
 
+  const startHandler = (e) => {
     timer.current = setTimeout(() => {
       setTimerExpired(true);
+      // modal open!
+      dialog.current.showModal();
     }, targetTime * 1000);
 
     setTimerStarted(true);
   };
 
-  const stopHandler = e => {
+  const stopHandler = (e) => {
     clearTimeout(timer.current);
   };
 
   return (
     <>
-      {timerExpired && <ResultModal targetTime={targetTime} result="lost" />}
+      <ResultModal ref={dialog} targetTime={targetTime} result="lost" />
       <section className="challenge">
         <h2>{title}</h2>
         <p className="challenge-time">
