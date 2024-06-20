@@ -49,7 +49,7 @@ const TodoInput = ({ onAdd }) => {
 
   return (
     <>
-      <div className={`form-wrapper ${isOpen ? 'open' : ''}`}>
+      <div className={`form-wrapper ${isOpen ? 'open' : undefined}`}>
         <form className='insert-form' onSubmit={formSubmitHandler} style={{ display: isOpen ? 'block' : 'none' }}>
           <input
             ref={inputRef}
@@ -62,7 +62,7 @@ const TodoInput = ({ onAdd }) => {
         </form>
       </div>
       <button
-        className={`insert-btn ${isOpen ? 'open' : ''}`}
+        className={`insert-btn ${isOpen ? 'open' : undefined}`}
         onClick={toggleForm}
       >
         <MdAdd />
