@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import Input from "./Input";
+import Input from "./input";
 
 const Player = () => {
 
