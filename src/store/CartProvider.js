@@ -11,6 +11,8 @@ const defaultState = {
 // action: 어떤 업데이트를 하는지 정보와 업데이트에 필요한 값을 가진 객체
 const cartReducer = (state, action) => {
 
+
+  
   console.log('action: ', action);
   console.log('업데이트 이전 상태: ', state);
 
