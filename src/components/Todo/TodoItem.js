@@ -1,30 +1,31 @@
 import React from 'react';
-import { MdDelete, MdDone } from "react-icons/md";
+import {MdDelete, MdDone} from "react-icons/md";
+
 import './scss/TodoItem.scss';
 
-const TodoItem = ({ item, onDelete, onToggle }) => {
-  const deleteHandler = (e) => {
-    e.stopPropagation();
-    onDelete(item.id);
+const TodoItem = ({ item, onRemove, onCheck }) => {
+
+  const { id, title, done } = item;
+
+  // 삭제 클릭 이벤트
+  const removeHandler = e => {
+    onRemove(id);
   };
 
-  const toggleHandler = (e) => {
-    e.stopPropagation();
-    onToggle(item.id);
+  const checkHandler = e => {
+    onCheck(id);
   };
 
   return (
-    <li className={`todo-list-item ${item.completed ? 'completed' : ''}`}>
-      <div
-        className={`check-circle ${item.completed ? 'active' : ''}`}
-        onClick={toggleHandler}
+    <li className='todo-list-item'>
+      <div 
+        className={`check-circle ${done ? 'active' : undefined}`}
+        onClick={checkHandler}
       >
-        {item.completed && <MdDone />}
+        {done && <MdDone/>}
       </div>
-      <span className={`text ${item.completed ? 'finish' : ''}`}>
-        {item.text}
-      </span>
-      <div className="remove" onClick={deleteHandler}>
+      <span className={`text ${done ? 'finish' : undefined}`}>{title}</span>
+      <div className='remove' onClick={removeHandler}>
         <MdDelete />
       </div>
     </li>

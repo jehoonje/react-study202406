@@ -34,7 +34,6 @@ const TimerChallenge = ({ title, targetTime }) => {
   // 남은 시간 리셋 함수
   const resetHandler = () => setTimeRemaining(targetTime * 1000);
 
-
   return (
     <>
       <ResultModal

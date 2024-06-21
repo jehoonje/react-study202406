@@ -1,18 +1,14 @@
 import React from 'react';
-import Player from './components/Ref/Player';
-import TimerChallenge from './components/Ref/TimeChallenge';
-
+import Header from './components/Food/Layout/Header';
+import Meals from './components/Food/Meals/Meals';
 
 const App = () => {
 
   return (
     <>
-      <Player />
-      <div id="challenges">
-        <TimerChallenge title='Easy' targetTime={1} />
-        <TimerChallenge title='Not Easy' targetTime={5} />
-        <TimerChallenge title='Getting tough' targetTime={10} />
-        <TimerChallenge title='Pros only' targetTime={15} />
+      <Header />
+      <div id="main">
+        <Meals />
       </div>
     </>
   );
