@@ -9,10 +9,10 @@ const ModalOverlay = ({ children }) => {
   );
 };
 
-const CartModal = ({ children , onClose }) => {
+const CartModal = ({ children, onClose }) => {
   return (
     <>
-      <div className={styles.backdrop} onClick={onClose}/>
+      <div className={styles.backdrop} onClick={onClose} />
       <ModalOverlay>
         {children}
       </ModalOverlay>

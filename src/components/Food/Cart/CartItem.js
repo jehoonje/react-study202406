@@ -13,6 +13,7 @@ const CartItem = ({ cart }) => {
     amount: amountStyle,
     actions
   } = styles;
+  
   const formatPrice = new Intl.NumberFormat('ko-KR').format(price);
 
   return (
