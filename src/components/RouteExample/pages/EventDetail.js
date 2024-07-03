@@ -4,7 +4,6 @@ import { useLoaderData, useParams } from 'react-router-dom';
 const EventDetail = () => {
   const { eventId: id } = useParams();
 
-
   const data = useLoaderData();
   console.log('loader data: ', data);
 

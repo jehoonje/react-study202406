@@ -1,8 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const NewEvent = () => {
-  return ( <h1>NewEvent</h1>
-  )
-}
+  return <h1>NewEventPage</h1>;
+};
 
 export default NewEvent;
