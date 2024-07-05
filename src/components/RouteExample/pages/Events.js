@@ -32,5 +32,6 @@ export const loader = async () => {
       }
     );
   } 
+  
   return response; // ok일 경우 events[]
 };
